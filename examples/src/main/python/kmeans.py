@@ -22,6 +22,7 @@ examples/src/main/python/ml/kmeans_example.py.
 
 This example requires NumPy (http://www.numpy.org/).
 """
+
 from __future__ import print_function
 
 import sys
@@ -67,7 +68,6 @@ if __name__ == "__main__":
 
     kPoints = data.takeSample(False, K, 1)
     tempDist = 1.0
-
     while tempDist > convergeDist:
         closest = data.map(
             lambda p: (closestPoint(p, kPoints), (p, 1)))
@@ -82,5 +82,4 @@ if __name__ == "__main__":
             kPoints[iK] = p
 
     print("Final centers: " + str(kPoints))
-
     spark.stop()
